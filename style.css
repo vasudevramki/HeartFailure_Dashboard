@@ -1,0 +1,477 @@
+/* -------------------- GENERAL -------------------- */
+
+.stApp {
+    background: radial-gradient(circle at 10% 20%, #FAF7F2 0%, #EDE8DC 90%);
+    color: #1F1916;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* Futuristic top bar animation */
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #8E7A53, #C4AC7B, #3BADA0, #C4AC7B, #8E7A53);
+    background-size: 400% 400%;
+    z-index: 999999;
+    animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* -------------------- SIDEBAR -------------------- */
+
+section[data-testid="stSidebar"] {
+    background: linear-gradient(135deg, #E2DCCD 0%, #EFEBE0 100%) !important;
+    border-right: 2px solid rgba(169, 146, 96, 0.3) !important;
+    box-shadow: 6px 0 24px rgba(120, 110, 90, 0.12) !important;
+}
+
+section[data-testid="stSidebar"] * {
+    color: #1F1916 !important;
+}
+
+/* Make sure text input / select labels inside sidebar also have excellent contrast */
+section[data-testid="stSidebar"] label {
+    color: #1F1916 !important;
+    font-weight: 600 !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stSidebarNav"] ul li a {
+    border-radius: 10px !important;
+    margin: 6px 10px !important;
+    padding: 10px 14px !important;
+    transition: all 0.3s ease !important;
+}
+
+section[data-testid="stSidebar"] [data-testid="stSidebarNav"] ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 4px 15px rgba(120, 110, 90, 0.12) !important;
+}
+
+/* -------------------- HEADINGS -------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #15110E !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.5px !important;
+}
+
+/* -------------------- TEXT -------------------- */
+
+p,
+li,
+span,
+label,
+div {
+    color: #2D2520;
+}
+
+/* Strong tags (bold text) */
+strong {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+/* -------------------- BUTTONS -------------------- */
+
+.stButton>button {
+    background: linear-gradient(135deg, #A28E66 0%, #857046 100%) !important;
+    color: #FFFFFF !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    padding: 12px 28px !important;
+    box-shadow: 0 6px 20px rgba(133, 112, 70, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.stButton>button:hover {
+    background: linear-gradient(135deg, #B29D75 0%, #947E53 100%) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 25px rgba(133, 112, 70, 0.35),
+        0 0 15px rgba(162, 142, 102, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.stButton>button:active {
+    transform: translateY(1px) !important;
+    box-shadow: 0 3px 12px rgba(133, 112, 70, 0.15) !important;
+}
+
+/* -------------------- METRICS (CARDS) -------------------- */
+
+[data-testid="metric-container"] {
+    background: rgba(255, 255, 255, 0.88) !important;
+    /* higher opacity for card contrast */
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(162, 142, 102, 0.4) !important;
+    /* higher border contrast */
+    border-radius: 16px !important;
+    padding: 22px !important;
+    box-shadow: 0 10px 30px 0 rgba(120, 100, 80, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+[data-testid="metric-container"]:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px 0 rgba(120, 100, 80, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        0 0 20px rgba(162, 142, 102, 0.25) !important;
+    border-color: rgba(133, 112, 70, 0.6) !important;
+}
+
+/* Contrast adjustment for metric label and value */
+[data-testid="metric-container"] [data-testid="stMetricLabel"] {
+    color: #55483E !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+}
+
+[data-testid="metric-container"] [data-testid="stMetricValue"] {
+    color: #15110E !important;
+    font-weight: 800 !important;
+    font-size: 26px !important;
+}
+
+/* -------------------- ALERTS & INFO BOXES -------------------- */
+
+.stAlert {
+    background: rgba(255, 255, 255, 0.85) !important;
+    /* higher contrast card background */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(162, 142, 102, 0.35) !important;
+    box-shadow: 0 10px 24px 0 rgba(120, 100, 80, 0.08) !important;
+    transition: all 0.3s ease !important;
+    padding: 18px 22px !important;
+}
+
+.stAlert p,
+.stAlert li {
+    color: #1F1916 !important;
+    font-weight: 500 !important;
+}
+
+.stAlert h3,
+.stAlert h4 {
+    color: #15110E !important;
+    margin-top: 0px !important;
+    font-weight: 700 !important;
+}
+
+/* Strong borders for feedback types */
+.stAlert:has(div[role="alert"][class*="success"]) {
+    border-left: 6px solid #27AE60 !important;
+}
+
+.stAlert:has(div[role="alert"][class*="info"]) {
+    border-left: 6px solid #2980B9 !important;
+}
+
+.stAlert:has(div[role="alert"][class*="warning"]) {
+    border-left: 6px solid #D35400 !important;
+}
+
+.stAlert:has(div[role="alert"][class*="error"]) {
+    border-left: 6px solid #C0392B !important;
+}
+
+/* -------------------- FORM INPUTS -------------------- */
+
+div[data-baseweb="input"],
+div[data-baseweb="select"] {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    /* higher contrast input background */
+    border: 1.5px solid rgba(162, 142, 102, 0.4) !important;
+    border-radius: 10px !important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s ease !important;
+}
+
+div[data-baseweb="input"]:focus-within,
+div[data-baseweb="select"]:focus-within {
+    border-color: #857046 !important;
+    box-shadow: 0 0 12px rgba(133, 112, 70, 0.3) !important;
+}
+
+input,
+select {
+    color: #1F1916 !important;
+    font-weight: 500 !important;
+}
+
+/* Checkboxes styling */
+label[data-testid="stCheckbox"] {
+    padding: 10px 16px !important;
+    border-radius: 10px !important;
+    border: 1.5px solid rgba(162, 142, 102, 0.3) !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.2s ease !important;
+    margin-bottom: 10px !important;
+}
+
+label[data-testid="stCheckbox"]:hover {
+    background-color: rgba(255, 255, 255, 1) !important;
+    border-color: rgba(133, 112, 70, 0.6) !important;
+    box-shadow: 0 6px 15px rgba(120, 100, 80, 0.08) !important;
+}
+
+label[data-testid="stCheckbox"] * {
+    color: #1F1916 !important;
+    font-weight: 600 !important;
+}
+
+/* -------------------- DIVIDER -------------------- */
+
+hr {
+    border: 0 !important;
+    height: 1px !important;
+    background: linear-gradient(to right, rgba(162, 142, 102, 0.05), rgba(162, 142, 102, 0.5), rgba(162, 142, 102, 0.05)) !important;
+    margin: 30px 0 !important;
+}
+
+/* ==========================================================
+   UNIVERSAL CONTRAST FIX
+   ========================================================== */
+
+/* All text */
+html,
+body,
+.stApp {
+    color: #1F1916 !important;
+}
+
+/* Every Streamlit text element */
+.stMarkdown,
+.stText,
+.stCaption,
+.stSubheader,
+.stHeader,
+.stTitle,
+p,
+span,
+label,
+small,
+strong,
+em,
+li {
+    color: #1F1916 !important;
+}
+
+/* Number inputs */
+div[data-baseweb="input"] input {
+    color: #1F1916 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Placeholder text */
+div[data-baseweb="input"] input::placeholder {
+    color: #7B726A !important;
+}
+
+/* Selectbox */
+div[data-baseweb="select"] * {
+    color: #1F1916 !important;
+}
+
+/* Selectbox control (the visible box showing the selected value + arrow) */
+div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    color: #1F1916 !important;
+    border-radius: 10px !important;
+}
+
+/* Selected value text */
+div[data-testid="stSelectbox"] div[data-baseweb="select"] div[class*="singleValue"],
+div[data-testid="stSelectbox"] div[data-baseweb="select"] > div > div:first-child {
+    color: #1F1916 !important;
+    font-weight: 500 !important;
+}
+
+/* Dropdown arrow + clear icon */
+div[data-testid="stSelectbox"] svg {
+    fill: #4D4540 !important;
+    color: #4D4540 !important;
+}
+
+/* Dropdown popup (rendered in a portal, so target it from the document root
+   with extra specificity to beat Streamlit's own injected option styles) */
+html body div[data-baseweb="popover"],
+html body div[data-baseweb="menu"] {
+    background: #FFFDF8 !important;
+}
+
+html body ul[role="listbox"] {
+    background: #FFFDF8 !important;
+    border: 1px solid rgba(162, 142, 102, 0.35) !important;
+}
+
+html body ul[role="listbox"] li,
+html body ul[role="listbox"] li *,
+html body ul[role="listbox"] li[role="option"],
+html body ul[role="listbox"] li[role="option"] * {
+    color: #1F1916 !important;
+    background: transparent;
+}
+
+/* Hovered option */
+html body ul[role="listbox"] li:hover,
+html body ul[role="listbox"] li[role="option"]:hover {
+    background: #ECE5D6 !important;
+}
+
+/* Keyboard-focused option */
+html body ul[role="listbox"] li[aria-selected="false"]:focus,
+html body ul[role="listbox"] li[data-highlighted="true"] {
+    background: #ECE5D6 !important;
+    color: #1F1916 !important;
+}
+
+/* Currently selected option */
+html body ul[role="listbox"] li[aria-selected="true"] {
+    background: #E2DCCD !important;
+    color: #15110E !important;
+    font-weight: 700 !important;
+}
+
+html body ul[role="listbox"] li[aria-selected="true"] * {
+    color: #15110E !important;
+}
+
+/* Checkbox */
+.stCheckbox label,
+.stCheckbox span {
+    color: #1F1916 !important;
+}
+
+/* Radio buttons */
+.stRadio label,
+.stRadio span {
+    color: #1F1916 !important;
+}
+
+/* Multiselect */
+[data-baseweb="tag"] {
+    color: #1F1916 !important;
+}
+
+/* Dataframe */
+[data-testid="stDataFrame"] {
+    background: white !important;
+}
+
+[data-testid="stDataFrame"] * {
+    color: #1F1916 !important;
+}
+
+/* Tables */
+table,
+thead,
+tbody,
+tr,
+td,
+th {
+    color: #1F1916 !important;
+}
+
+/* Expander */
+details,
+summary {
+    color: #1F1916 !important;
+}
+
+/* Tabs */
+button[data-baseweb="tab"] {
+    color: #1F1916 !important;
+}
+
+/* Download button */
+.stDownloadButton button {
+    background: linear-gradient(135deg, #A28E66 0%, #857046 100%) !important;
+    color: #FFFFFF !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    padding: 12px 28px !important;
+    box-shadow: 0 6px 20px rgba(133, 112, 70, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.stDownloadButton button:hover {
+    background: linear-gradient(135deg, #B29D75 0%, #947E53 100%) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 25px rgba(133, 112, 70, 0.35),
+        0 0 15px rgba(162, 142, 102, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.stDownloadButton button p {
+    color: #FFFFFF !important;
+}
+
+/* Success / Info / Warning / Error text */
+.stSuccess,
+.stInfo,
+.stWarning,
+.stError {
+    color: #1F1916 !important;
+}
+
+.stSuccess *,
+.stInfo *,
+.stWarning *,
+.stError * {
+    color: #1F1916 !important;
+}
+
+/* Plotly hover labels */
+.js-plotly-plot .hovertext text {
+    fill: #1F1916 !important;
+}
+
+/* Plotly modebar */
+.modebar * {
+    color: #1F1916 !important;
+}
+
+/* Tooltips */
+[data-baseweb="tooltip"] {
+    color: #1F1916 !important;
+}
+
+/* Metric arrows */
+[data-testid="stMetricDelta"] {
+    color: #1F1916 !important;
+}
