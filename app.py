@@ -89,6 +89,14 @@ st.markdown(
 
 st.markdown("---")
 
+st.warning(
+    "⚠️ This is an educational/demo tool using simulated rule-based scoring, "
+    "not a validated clinical model. It is not intended for real diagnostic "
+    "or treatment decisions — always consult a qualified healthcare professional."
+)
+
+st.markdown("---")
+
 st.markdown("""
 ### Welcome
 
