@@ -19,6 +19,7 @@ def apply_futuristic_theme(fig):
     blending with the warm beige background.
     """
     fig.update_layout(
+        title=dict(text=""),
         paper_bgcolor="rgba(0, 0, 0, 0)",
         plot_bgcolor="rgba(0, 0, 0, 0)",
         font=dict(
